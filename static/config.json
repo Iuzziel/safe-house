@@ -1,0 +1,20 @@
+{
+	"server": {
+		"host": "localhost",
+		"port": 8080
+	},
+	"database": {
+		"user": "postgres",
+		"host": "localhost",
+		"database": "postgres",
+		"password": "mysecretpassword",
+		"port": 5432
+	},
+	"api": [
+		{
+			"Subject": "baseball",
+			"Host": "http://lookup-service-prod.mlb.com",
+			"Path": "/json/named.[endpoint].bam"
+		}
+	]
+}

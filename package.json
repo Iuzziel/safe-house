@@ -1,0 +1,35 @@
+{
+  "name": "safe-house",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/main.js",
+  "license": "AGPL-3.0",
+  "scripts": {
+    "start": "node dist/main",
+    "build": "./node_modules/.bin/tsc -p ./tsconfig.json",
+    "dev": "yarn build && yarn start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "postgres"
+  ],
+  "author": {
+    "name": "Iuzziel",
+    "email": "iuzziel.abrudavah@outlook.com",
+    "url": "https://github.com/Iuzziel"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Iuzziel/safe-house"
+  },
+  "dependencies": {
+    "websocket": "^1.0.29"
+  },
+  "devDependencies": {
+    "@types/node": "^12.6.2",
+    "@types/pg": "^7.11.0",
+    "@types/websocket": "^0.0.40",
+    "typescript": "^3.5.3"
+  }
+}
