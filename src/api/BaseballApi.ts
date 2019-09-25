@@ -1,4 +1,6 @@
 import { EventEmitter } from 'events';
+import { Player } from '../models';
+import { ApiService, ApiEndpointFormat } from '../services';
 
 export class BaseballApi extends EventEmitter {
 	private static instance: BaseballApi;
@@ -19,4 +21,9 @@ export class BaseballApi extends EventEmitter {
 			return new BaseballApi(options);
 		}
 	}
+
+	// public static getPlayerData(playerId: string): Player {
+	// 	ApiService.getEndpoint('baseball', 'player')
+	// 	return;
+	// }
 }

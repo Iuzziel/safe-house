@@ -4,14 +4,21 @@ import { COLORS } from './constant';
 import { Server } from './server';
 import { Router } from './router';
 import { HomeController } from './controller';
-import { ServerService, DatabaseService } from './services';
+import { ServerService, ApiService } from './services';
 import { connection } from 'websocket';
 
 process.on('uncaughtException', err => console.log('uncaughtException', err));
 
 const server = new Server({ host: ServerService.getOptions().host, port: ServerService.getOptions().port });
 const router = new Router();
-const dataAcess = DatabaseService.getInstance();
+
+// Test
+let test = new Map<string, string>();
+test.set('sport_code', 'mlb');
+test.set('player_id', '493316');
+// test.set('player_id', '0');
+ApiService.getEndpoint({ topic: 'baseball', data: 'player', parameters: test }).then(r => console.log("main", r)).catch(e => console.error(e));
+// Fin test
 
 router
 	.addStatic('/public')

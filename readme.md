@@ -15,4 +15,12 @@ To dev comfy, use 2 shells :
 
 ## MLB data view
 
-Thanks to mlb.com date, and api doc from `https://appac.github.io/mlb-data-api-docs/`
+Thanks to mlb.com date, and api doc from [appac](https://appac.github.io/mlb-data-api-docs/).
+
+Data implemented:
+- Player (in progress)
+- Team (in progress)
+- Game (in progress)
+Todo:
+- Stats
+- Reports

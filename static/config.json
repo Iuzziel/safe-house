@@ -12,9 +12,135 @@
 	},
 	"api": [
 		{
-			"Subject": "baseball",
-			"Host": "http://lookup-service-prod.mlb.com",
-			"Path": "/json/named.[endpoint].bam"
+			"topic": "baseball",
+			"host": "http://lookup-service-prod.mlb.com",
+			"path": "/json/named.[endpoint].bam",
+			"endpoints": [
+				{
+					"data": "player",
+					"endpoint": "player_info",
+					"parameters": [
+						{
+							"name": "sport_code",
+							"options": [
+								"mlb"
+							],
+							"required": true
+						},
+						{
+							"name": "player_id",
+							"required": true
+						}
+					]
+				},
+				{
+					"data": "player_teams",
+					"endpoint": "player_teams",
+					"parameters": [
+						{
+							"name": "player_id",
+							"required": true
+						},
+						{
+							"name": "season",
+							"required": false
+						}
+					]
+				},
+				{
+					"data": "players",
+					"endpoint": "search_player_all",
+					"parameters": [
+						{
+							"name": "sport_code",
+							"options": [
+								"mlb"
+							],
+							"required": true
+						},
+						{
+							"name": "name_part",
+							"required": true
+						},
+						{
+							"name": "active_sw",
+							"options": [
+								"Y",
+								"N"
+							],
+							"required": false
+						}
+					]
+				},
+				{
+					"data": "season_teams",
+					"endpoint": "team_all_season",
+					"parameters": [
+						{
+							"name": "season",
+							"required": true
+						},
+						{
+							"name": "all_star_sw",
+							"options": [
+								"Y",
+								"N"
+							],
+							"required": false
+						},
+						{
+							"name": "sort_order",
+							"options": [
+								"name_asc",
+								"name_desc"
+							],
+							"required": false
+						}
+					]
+				},
+				{
+					"data": "roster",
+					"endpoint": "roster_40",
+					"parameters": [
+						{
+							"name": "team_id",
+							"require": true
+						}
+					]
+				},
+				{
+					"data": "team_rosters",
+					"endpoint": "roster_team_alltime",
+					"parameters": [
+						{
+							"name": "team_id",
+							"required": true
+						},
+						{
+							"name": "start_season",
+							"required": true
+						},
+						{
+							"name": "end_season",
+							"required": true
+						}
+					]
+				},
+				{
+					"data": "game",
+					"endpoint": "org_game_type_date_info",
+					"parameters": [
+						{
+							"name": "game_type",
+							"required": true
+						},
+						{
+							"name": "season",
+							"required": true
+						}
+					]
+				}
+			]
 		}
 	]
 }
