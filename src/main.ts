@@ -2,14 +2,13 @@ import { Socket } from 'net';
 
 import { COLORS } from './constant';
 import { Server } from './server';
-import { Router } from './router';
-import { HomeController } from './controller';
+import { Router, routes } from './router';
 import { ServerService, ApiService } from './services';
 import { connection } from 'websocket';
 
 process.on('uncaughtException', err => console.log('uncaughtException', err));
 
-const server = new Server({ host: ServerService.getOptions().host, port: ServerService.getOptions().port });
+export const server = new Server({ host: ServerService.getOptions().host, port: ServerService.getOptions().port });
 const router = new Router();
 
 // Test
@@ -22,7 +21,7 @@ ApiService.getEndpoint({ topic: 'baseball', data: 'player', parameters: test }).
 
 router
 	.addStatic('/public')
-	.addRoute({ path: '/', method: 'get', controllerMethod: HomeController.index, templateUrl: 'templates/index.html' });
+	.addRoute(...routes);
 
 server.on('request', router.resolve, router);
 server.on('clientError', (err: Error, socket: Socket) => {

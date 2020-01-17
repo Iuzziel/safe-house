@@ -5,7 +5,7 @@ import fs from 'fs';
 import { WebTool } from '../tools';
 import { COLORS } from '../constant';
 import { RouteOptions } from './Route';
-import { HomeController } from '../controller';
+import { HomeController, ApiController } from '../controller';
 
 export class Router {
 	private _routes: Map<string, IRoute>;
@@ -16,12 +16,13 @@ export class Router {
 		this._static = new Map<string, string>();
 
 		let allController = [
+			ApiController,
 			HomeController
 		]
-		allController.forEach(controler => {
-			const instance = new controler();
-			const prefix = Reflect.get(controler, 'prefix');
-			const routes: Array<IRoute> = Reflect.get(controler, 'routes');
+		allController.forEach(controller => {
+			const instance = new controller();
+			const prefix = Reflect.get(controller, 'prefix');
+			const routes: Array<IRoute> = Reflect.get(controller, 'routes');
 
 			routes.forEach(route => {
 				route.path = (prefix + route.path).replace(/(\/{2,})+/g, '/');

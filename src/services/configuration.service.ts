@@ -127,8 +127,7 @@ export class ApiService extends ConfigurationService {
 					try {
 						const parsedData = JSON.parse(rawData);
 						let psName = Object.getOwnPropertyNames(parsedData);
-						//@ts-ignore
-						let pName = psName.find(v => v === t.endpoint);
+						let pName = psName.find(v => v === t?.endpoint);
 						if (!pName) throw new Error(`Unexpected result from the query!`);
 						let pValue = Reflect.get(parsedData, pName);
 						if (!pValue.queryResults && (!pValue.queryResults.totalSize && !pValue.queryResults.created))

@@ -28,7 +28,6 @@
   },
   "devDependencies": {
     "@types/node": "^12.6.2",
-    "@types/pg": "^7.11.0",
     "@types/websocket": "^0.0.40",
     "typescript": "^3.5.3"
   }
