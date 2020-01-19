@@ -47,7 +47,7 @@ export class Router {
 	}
 
 	public resolve(req: http.IncomingMessage, res: http.ServerResponse): any {
-		let body = '<h1>404 Page not found</h1>';
+		let body = '<h1>404</h1><p>Page not found</p>';
 		let statusCode = 404;
 		// console.log(req.headers.referer)
 		if (req && req.url && this._routes) {
