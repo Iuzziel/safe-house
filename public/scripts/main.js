@@ -1,9 +1,3 @@
-if (!Array.isArray) {
-  Array.isArray = function (arg) {
-    return Object.prototype.toString.call(arg) === '[object Array]';
-  };
-}
-
 console.debug('Debug enable')
 
 const socket = new WebSocket(`ws://${document.location.host}/wsserver`, 'echo-protocol');
